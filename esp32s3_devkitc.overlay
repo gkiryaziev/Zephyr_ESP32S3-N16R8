@@ -1,0 +1,16 @@
+/* 8MB PSRAM */
+&psram0 {
+	size = <DT_SIZE_M(8)>;
+};
+
+/* 16MB FLASH */
+&flash0 {
+	/delete-node/ partitions;
+};
+
+&flash0 {
+	reg = <0x0 DT_SIZE_M(16)>;
+};
+
+#include <espressif/partitions_0x0_amp_16M.dtsi>
+/* --------- */

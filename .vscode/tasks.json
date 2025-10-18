@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "west",
+            "args": [
+                "build",
+                // "-p","always",
+                "-b", "esp32s3_devkitc/esp32s3/procpu",
+                // "-S", "flash-16M",
+                // "-S", "psram-8M",
+                "--",
+                "-DOVERLAY_CONFIG=prj.conf",
+                "-DDTC_OVERLAY_FILE=esp32s3_devkitc.overlay"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash",
+            "type": "shell",
+            "command": "west flash",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "rm -rf build",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Monitor",
+            "type": "shell",
+            "command": "west espressif monitor",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
